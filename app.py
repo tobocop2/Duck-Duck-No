@@ -3,6 +3,7 @@ from constants import username, password
 import sendgrid
 import requests
 import urllib2
+import os
 s = sendgrid.Sendgrid(username, password, secure=True)
 app = Flask(__name__)
 
@@ -28,4 +29,5 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    port = int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0', port=port)
