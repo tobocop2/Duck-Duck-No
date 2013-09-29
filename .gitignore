@@ -2,6 +2,11 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxpkmgdDIlg4J4ypzMy7ZgLlxZAtMdO5Xc84wDVZJhFOq
 \venv
 d]
 
+# Bullshit Tobias keeps committing:
+*.swp
+*~
+*.pyc
+
 # C extensions
 *.so
 
