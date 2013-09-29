@@ -1,3 +1,10 @@
 body{
     background-image:url('/static/imgs/pattern.png');
 }
+
+.custom-hero{
+    padding: 20px;
+    border-radius:20px;
+    background:rgba(0, 0, 0, 0.2);
+    position:relative;
+}
