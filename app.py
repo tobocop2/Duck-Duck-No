@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from constants import username, password
 import sendgrid
+import requests
+import urllib2
 s = sendgrid.Sendgrid(username, password, secure=True)
 app = Flask(__name__)
 
@@ -19,8 +21,11 @@ def search():
     message.add_to("detox27@gmail.com", "John Doe")
     # use the Web API to send your message
     s.web.send(message)
-    return "Fuck off I'm not searching for " + query
+
+    response = requests.get('http://api.duckduckgo.com/?q=' + query + '&format=json')
+    json = response.text
+    return render_template('results.html', json=json)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)

@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Duck Duck No - Search results for </title>
+    <link href="/static/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/zepto.min.js"></script>
+  </head>
+  <body>
+    <ul id="results">
+      <!-- more stuff will show here -->
+    </ul>
+    <script>
+      var j = {{json | safe}};
+      Zepto(function($){
+        for (jkey in j.RelatedTopics) {
+          $('#results').append('<li>' + j.RelatedTopics[jkey]['Result'] + 
+          '</li>');
+        }
+      });
+    </script>
+  </body>
+</html>
