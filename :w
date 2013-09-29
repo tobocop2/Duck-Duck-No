@@ -13,10 +13,11 @@
     <script>
       var j = {{json | safe}};
       Zepto(function($){
+
         $('#definition').text(j.Definition);
+
         for (jkey in j.RelatedTopics) {
-          $('#results').append('<li>' + j.RelatedTopics[jkey]['Result'] + 
-          '</li>');
+          $('#results').append('<li>' + j.RelatedTopics[jkey]['Result'] + '</li>');
         }
       });
     </script>
