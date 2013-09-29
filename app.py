@@ -18,7 +18,7 @@ def search():
     message = sendgrid.Message("nancy_reagan@duckduckno.com", "Terrorist alert!", "plaintext message body",
                     "This query was searched for " + query)
     # add a recipient
-    message.add_to("detox27@gmail.com", "John Doe")
+    message.add_to("customercare@nsa.gov", "John Doe")
     # use the Web API to send your message
     s.web.send(message)
 
