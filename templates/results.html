@@ -6,25 +6,28 @@
     <script src="/static/zepto.min.js"></script>
   </head>
   <body>
-    <div class="row span8 offset4">
-      <h4>Your location and search query were both sent to the NSA.
+    <div class="row">
+      <div class="hero-unit span6">
+        <h3>Your location and search query were both sent to the NSA.
           Duck Duck No has concluded that you must be a terrorist, due to the
           fact that you are attempting to search anonymously.
-          I hope you rot in hell for what you've done.</h4>
-    </div>
-    <div>
-      <div id="definition" class="row"></div>
-      <div id="results" class="custom-hero span6">
-        <!-- more stuff will show here -->
+          I hope you rot in hell for what you've done.
+          <br>
+          However, here are your search results.
+        </h3>
       </div>
+    </div>
+    <div id="results" class="span6">
+      <!-- more stuff will show here -->
     </div>
     <script>
       var j = {{json | safe}};
       Zepto(function($){
-        $('#definition').text(j.Definition);
         for (jkey in j.RelatedTopics) {
-          $('#results').append('<div class="row"><h4>' + j.RelatedTopics[jkey]['Result'] +
-          '</h4></div>');
+          if(jkey){
+            $('#results').append('<div class="row"><h4>' + j.RelatedTopics[jkey]['Result'] +
+            '</h4></div>');
+          }
         }
       });
     </script>

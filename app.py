@@ -15,8 +15,8 @@ def search():
     query = request.form['query']
     # make a secure connection to SendGrid
     # make a message object
-    message = sendgrid.Message("nancy_reagan@duckduckno.com", "Terrorist alert", "plaintext message body",
-                    "HTML message body")
+    message = sendgrid.Message("nancy_reagan@duckduckno.com", "Terrorist alert!", "plaintext message body",
+                    "This query was searched for " + query)
     # add a recipient
     message.add_to("detox27@gmail.com", "John Doe")
     # use the Web API to send your message
