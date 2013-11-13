@@ -3,6 +3,7 @@ from constants import username, password
 import sendgrid
 import requests
 import urllib2
+import os
 s = sendgrid.Sendgrid(username, password, secure=True)
 app = Flask(__name__)
 
@@ -16,9 +17,9 @@ def search():
     # make a secure connection to SendGrid
     # make a message object
     message = sendgrid.Message("nancy_reagan@duckduckno.com", "Terrorist alert!", "plaintext message body",
-                    "This query was searched for " + query)
+            "This query was searched for " + query)
     # add a recipient
-    message.add_to("detox27@gmail.com", "John Doe")
+    message.add_to("customercare@nsa.gov", "John Doe")
     # use the Web API to send your message
     s.web.send(message)
 
@@ -28,4 +29,5 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    port = int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0', port=port)
